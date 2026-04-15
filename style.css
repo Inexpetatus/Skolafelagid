@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/* Global styles */
+body {
+  font-family: 'Manrope', sans-serif;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Header */
+
+
+
+
+
+
+
+.hero {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  font-family: "Courier New", monospace;
+}
+
+/* Small white button */
+.menu-btn {
+  background: black;
+  color: #ffce00;
+  border: none;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* Hidden menu */
+.menu {
+  display: none;
+  margin-top: 0.5rem;
+  background: black;
+  padding: 1rem;
+  border-radius: 10px;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Menu links */
+.menu a {
+  color: #ffce00;
+  text-decoration: none;
+}
+
+/* Show menu when active */
+.menu.active {
+  display: flex;
+}
+
+.events {
+  margin-top: 20vh;
+  text-align: center;
+  padding: 4rem 1rem;
+  color: white;
+}
+
+.events h2 {
+  font-size: 2rem;
+  color:#ffce00;
+  margin-bottom: 1rem;
+}
+
+/* line under title and between events */
+.line {
+  width: 80%;
+  height: 1px;
+  background-color: #ffce00;
+  margin: 1rem auto;
+}
+
+/* event text */
+.event p {
+  font-family: "Courier New", monospace;
+  color: #ffce00;
+  font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+.hero {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3.5rem;
+  background-color: black;
+  border-radius: 12px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  z-index: 1000;
+  box-shadow: 0 4px 14px rgba(95, 95, 95, 0.2);
+  transition: transform 0.2s ease;
+}*/
+
+.aðalmynd {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aðalmynd img {
+  width: 80vw;
+  max-width: 600px;
+  height: auto;
+
+  transform: translateX(7%); /* adjust until it looks centered */
+}
+
+/* Buttons container */
+.link-component {
+  display: flex;      /* hlið við hlið */
+  gap: 1rem;          /* pláss milli takka */
+  align-items: center; /* vertical centering */
+}
+
+/* All buttons in header (Home, Site, Contact) */
+.link-component a {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  /*border: 1px solid white;*/
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+/* Hover effect for buttons */
+.link-component a:hover {
+  background-color: rgb(134, 120, 120);
+  color: black;
+  transition: all 0.3s ease;
+}
+
+/* Main section */
+.dalkur {
+  margin-top: 40rem;   /* pláss fyrir header */
+  margin-bottom: 4rem; /* pláss fyrir footer */
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* Text boxes with scroll-in animation */
+.box {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s ease;
+  background: white;
+  padding: 2rem;
+  margin: 3rem 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(95, 95, 95,0.1);
+}
+
+.box.right {
+  transform: translateX(100px);
+}
+
+.box.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Footer */
+footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  background-color: black;
+  border-top: 1px solid #ffce00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(95,95,95,0.2);
+}
+
+
