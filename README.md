@@ -1,0 +1,2 @@
+# Skolafelagid
+Vefsíða Skólafélagsins
