@@ -40,32 +40,40 @@ body {
 
 /* Hidden menu */
 .menu {
-  display: none;
+  display: flex;              /* ALWAYS flex */
+  flex-direction: column;     /* ALWAYS column */
+  gap: 0.5rem;
+
   margin-top: 0.5rem;
   background: black;
   padding: 1rem;
   border-radius: 10px;
-  flex-direction: column;
-  gap: 0.5rem;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+
+  z-index: 2000;
 }
 
+.menu.active {
+  transform: translateX(0);
+}
 /* Menu links */
 .menu a {
   color: #ffce00;
   text-decoration: none;
 }
 
-/* Show menu when active */
-.menu.active {
-  display: flex;
-}
 
 .events {
-  margin-top: 20vh;
+  /*smargin-top: 20vh;*/
   text-align: center;
   padding: 4rem 1rem;
   color: white;
+  margin-top: -100vh; /* pull it up behind the image */
+  padding-top: 100vh; /* keep spacing correct */
 }
+
 
 .events h2 {
   font-size: 2rem;
@@ -87,47 +95,102 @@ body {
   color: #ffce00;
   font-size: 1.2rem;
 }
+.frettir {
+  padding: 4rem 1rem;
+  text-align: center;
+}
 
+.frettir h2 {
+  color: #ffce00;
+  margin-bottom: 2rem;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-.hero {
-  position: fixed;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50%;
-  height: 3.5rem;
-  background-color: black;
-  border-radius: 12px;
-  border: 1px solid white;
+/* Container */
+.slider-container {
+  position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 1.5rem;
-  z-index: 1000;
-  box-shadow: 0 4px 14px rgba(95, 95, 95, 0.2);
-  transition: transform 0.2s ease;
-}*/
+}
+
+/* Slider */
+.slider {
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+/* Cards */
+.card {
+  min-width: calc(33% - 1rem); /* 3 on screen */
+  background: black;
+  border: 1px solid #ffce00;
+  border-radius: 10px;
+  padding: 1rem;
+  flex-shrink: 0;
+  text-align: left;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* square */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card h3 {
+  color: #ffce00;
+  margin: 0.5rem 0;
+}
+
+.card a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.nav {
+  background: black;
+  color: #ffce00;
+  border: 1px solid #ffce00;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+
+.left {
+  margin-right: 0.5rem;
+  border-radius:1rem;
+}
+
+.right {
+  margin-left: 0.5rem;
+  border-radius:1rem;
+}
+.slider {
+  scroll-snap-type: x mandatory;
+}
+
+.card {
+  scroll-snap-align: start;
+}
 
 .aðalmynd {
-  height: 100vh;
+  height: auto;
+  padding-top: 20vh;
+  padding-bottom: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 1000;
 }
 
 .aðalmynd img {
@@ -137,7 +200,10 @@ body {
 
   transform: translateX(7%); /* adjust until it looks centered */
 }
-
+.aðalmynd.small {
+  transform: scale(0.8) translateY(-10px);
+  opacity: 0.8;
+}
 /* Buttons container */
 .link-component {
   display: flex;      /* hlið við hlið */
