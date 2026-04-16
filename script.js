@@ -19,21 +19,26 @@ document.addEventListener("DOMContentLoaded", function () {
     checkBoxes();
 
 });
-/*
+
 let lastScroll = 0;
-const hero = document.querySelector(".hero");
+const adalmynd = document.querySelector(".aðalmynd");
 
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
 
   if (currentScroll > lastScroll) {
-    hero.style.transform = "translate(-50%, -150%)"; // hide
+    // scrolling DOWN → hide smoothly
+    adalmynd.style.transform = "translateY(-100%)";
+    adalmynd.style.opacity = "0";
   } else {
-    hero.style.transform = "translate(-50%, 0)"; // show
+    // scrolling UP → show smoothly
+    adalmynd.style.transform = "translateY(0)";
+    adalmynd.style.opacity = "1";
   }
 
   lastScroll = currentScroll;
-});*/
+});
+
 
 const btn = document.querySelector(".menu-btn");
 const menu = document.querySelector(".menu");
@@ -45,4 +50,27 @@ document.addEventListener("click", (e) => {
   if (!e.target.closest(".hero")) {
     menu.classList.remove("active");
   }
+});
+
+
+
+/*FYRIR FRETTIR OG TILKYNNINGAR*/
+const slider = document.querySelector(".slider");
+const leftBtn = document.querySelector(".left");
+const rightBtn = document.querySelector(".right");
+
+const scrollAmount = slider.offsetWidth / 3; // one card width
+
+rightBtn.addEventListener("click", () => {
+  slider.scrollBy({
+    left: scrollAmount,
+    behavior: "smooth"
+  });
+});
+
+leftBtn.addEventListener("click", () => {
+  slider.scrollBy({
+    left: -scrollAmount,
+    behavior: "smooth"
+  });
 });
