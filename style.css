@@ -110,6 +110,9 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+
+  max-width: 900px;   /* control how wide it is */
+  margin: 0 auto;     /* center it */
 }
 
 /* Slider */
@@ -123,7 +126,7 @@ body {
 
 /* Cards */
 .card {
-  min-width: calc(33% - 1rem); /* 3 on screen */
+  min-width: calc((100% - 2rem) / 3);
   background: black;
   border: 1px solid #ffce00;
   border-radius: 10px;
