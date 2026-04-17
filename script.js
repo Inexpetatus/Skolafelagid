@@ -1,24 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-    const boxes = document.querySelectorAll(".box");
-
-    function checkBoxes() {
-        const triggerBottom = window.innerHeight * 0.80;
-
-        boxes.forEach(box => {
-            const boxTop = box.getBoundingClientRect().top;
-
-            if (boxTop < triggerBottom) {
-                box.classList.add("show");
-            }
-        });
-    }
-
-    window.addEventListener("scroll", checkBoxes);
-
-    checkBoxes();
-
-});
 
 let lastScroll = 0;
 const adalmynd = document.querySelector(".aðalmynd");
@@ -40,6 +19,8 @@ window.addEventListener("scroll", () => {
 });
 
 
+
+/*MENU*/
 const btn = document.querySelector(".menu-btn");
 const menu = document.querySelector(".menu");
 
@@ -58,14 +39,18 @@ document.addEventListener("click", (e) => {
 const slider = document.querySelector(".slider");
 const leftBtn = document.querySelector(".left");
 const rightBtn = document.querySelector(".right");
+const card = document.querySelector(".card");
+const scrollAmount = card.offsetWidth;
 
-const scrollAmount = slider.offsetWidth / 3; // one card width
+slider.addEventListener("scroll", updateButtons);
+window.addEventListener("load", updateButtons);
 
 rightBtn.addEventListener("click", () => {
   slider.scrollBy({
     left: scrollAmount,
     behavior: "smooth"
   });
+  setTimeout(updateButtons, 300);
 });
 
 leftBtn.addEventListener("click", () => {
@@ -73,4 +58,22 @@ leftBtn.addEventListener("click", () => {
     left: -scrollAmount,
     behavior: "smooth"
   });
+  setTimeout(updateButtons, 300);
 });
+
+
+function updateButtons() {
+  const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+  if (slider.scrollLeft <= 0) {
+    leftBtn.style.visibility = "hidden";
+  } else {
+    leftBtn.style.visibility = "visible";
+  }
+
+  if (slider.scrollLeft >= maxScroll - 1) {
+    rightBtn.style.visibility = "hidden";
+  } else {
+    rightBtn.style.visibility = "visible";
+  }
+}
